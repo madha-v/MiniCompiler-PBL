@@ -1,8 +1,8 @@
 import ply.lex as lex
 
-# Reserved keywords
 reserved = {
-    'int': 'INT'
+    'int':'INT',
+    'print':'PRINT'
 }
 
 tokens = [
@@ -24,7 +24,7 @@ t_ignore = ' \t'
 
 def t_ID(t):
     r'[a-zA-Z_][a-zA-Z0-9_]*'
-    t.type = reserved.get(t.value, 'ID')
+    t.type = reserved.get(t.value,'ID')
     return t
 
 def t_NUMBER(t):
@@ -37,7 +37,7 @@ def t_newline(t):
     t.lexer.lineno += len(t.value)
 
 def t_error(t):
-    print("Illegal character:", t.value[0])
+    print("Illegal character:",t.value[0])
     t.lexer.skip(1)
 
 lexer = lex.lex()
