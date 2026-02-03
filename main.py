@@ -31,3 +31,4 @@ for i in opt:
 print("\nTARGET CODE:")
 for i in generate(opt):
     print(i)
+
